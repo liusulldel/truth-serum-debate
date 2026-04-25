@@ -16,6 +16,15 @@ from . import DebaterOutput, Decision
 
 
 def aggregate(question: str, debater_outputs: Sequence[DebaterOutput]) -> Decision:
+    """Vanilla debate aggregator: pick the side with greater rebuttal strength.
+
+    Args:
+        question: The question being decided.
+        debater_outputs: At least two debater outputs with rebuttal_strength.
+
+    Returns:
+        A Decision tagged ``vanilla_debate``.
+    """
     if len(debater_outputs) < 2:
         raise ValueError("Vanilla debate needs >=2 debaters.")
     s_t = max((d.rebuttal_strength for d in debater_outputs if d.answer == 1), default=0.0)

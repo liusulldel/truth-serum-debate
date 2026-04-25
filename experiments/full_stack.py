@@ -13,6 +13,19 @@ from experiments.baselines import DebaterOutput, Decision
 def full_stack_aggregate(question: str, debater_outputs: Sequence[DebaterOutput], *,
                          alpha: float = 1.0, tau_ambig: float = 0.4,
                          tau_route: float = 0.6, h: float = 0.15) -> Decision:
+    """Compose Garicano routing with alpha-MEU judging.
+
+    Args:
+        question: The question being decided.
+        debater_outputs: One or more debater outputs with confidence and p_true.
+        alpha: alpha-MEU mixing weight (1.0 = pure max).
+        tau_ambig: Ambiguity threshold above which alpha-MEU abstains.
+        tau_route: Confidence threshold above which Garicano shortcuts the judge.
+        h: Reserved Garicano referral cost parameter.
+
+    Returns:
+        A Decision from either the routed worker or the alpha-MEU aggregator.
+    """
     if not debater_outputs:
         raise ValueError("Need >=1 debater output.")
     # Step 1: Garicano routing -- shortcut on confident worker.

@@ -1,0 +1,45 @@
+{
+  "n_questions": 200,
+  "seed": 42,
+  "by_persona": {
+    "intrinsic": {
+      "effort_mean": 0.8535,
+      "effort_sd": 0.0769,
+      "accuracy_mean": 0.815,
+      "verbosity_mean": 176.53,
+      "hedge_mean": 0.845,
+      "n": 200
+    },
+    "high_extrinsic": {
+      "effort_mean": 0.8139,
+      "effort_sd": 0.0777,
+      "accuracy_mean": 0.745,
+      "verbosity_mean": 169.16,
+      "hedge_mean": 0.89,
+      "n": 200
+    },
+    "low_extrinsic": {
+      "effort_mean": 0.554,
+      "effort_sd": 0.0716,
+      "accuracy_mean": 0.51,
+      "verbosity_mean": 126.36,
+      "hedge_mean": 1.265,
+      "n": 200
+    },
+    "stateless": {
+      "effort_mean": 0.7003,
+      "effort_sd": 0.0833,
+      "accuracy_mean": 0.69,
+      "verbosity_mean": 152.3,
+      "hedge_mean": 1.08,
+      "n": 200
+    }
+  },
+  "contrasts": {
+    "intrinsic_minus_low_extrinsic_effort": 0.2995,
+    "stateless_minus_low_extrinsic_effort": 0.1463,
+    "high_extrinsic_minus_intrinsic_effort": -0.0396,
+    "intrinsic_minus_low_extrinsic_accuracy": 0.305
+  },
+  "crowd_out_replicated": true
+}

@@ -14,6 +14,15 @@ from . import DebaterOutput, Decision
 
 
 def aggregate(question: str, debater_outputs: Sequence[DebaterOutput]) -> Decision:
+    """Confidence-weighted log-odds aggregation (Grofman-Owen-Feld Thm 6).
+
+    Args:
+        question: The question being decided.
+        debater_outputs: One or more debater outputs with confidence and p_true.
+
+    Returns:
+        A Decision tagged ``weighted_confidence``.
+    """
     if not debater_outputs:
         raise ValueError("Need >=1 debater output.")
     log_odds = 0.0

@@ -24,6 +24,16 @@ DRIFT = 0.4  # per-round shrinkage toward population mean (Du fig. 3 regularity)
 
 def aggregate(question: str, debater_outputs: Sequence[DebaterOutput],
               rounds: int = 2) -> Decision:
+    """Du-style multi-round drift toward population mean, then majority vote.
+
+    Args:
+        question: The question being decided.
+        debater_outputs: One or more debater outputs.
+        rounds: Number of revision rounds to apply.
+
+    Returns:
+        A Decision tagged ``du_debate``.
+    """
     if not debater_outputs:
         raise ValueError("Need >=1 debater output.")
     ps = [d.p_true for d in debater_outputs]

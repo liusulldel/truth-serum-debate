@@ -13,6 +13,15 @@ from . import DebaterOutput, Decision
 
 
 def aggregate(question: str, debater_outputs: Sequence[DebaterOutput]) -> Decision:
+    """Plurality vote over debater answers; ties break to FALSE.
+
+    Args:
+        question: The question being decided.
+        debater_outputs: One or more debater outputs.
+
+    Returns:
+        A Decision tagged ``majority_vote``.
+    """
     if not debater_outputs:
         raise ValueError("Need >=1 debater output.")
     votes = Counter(d.answer for d in debater_outputs)

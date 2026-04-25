@@ -1,0 +1,42 @@
+{
+  "persistent_identity_high_rep": {
+    "persona": "persistent_identity_high_rep",
+    "n": 200,
+    "hedging_rate": 0.275,
+    "n_committed": 145,
+    "accuracy_on_committed": 0.9172413793103448,
+    "ece_on_committed": 0.050049736887631605,
+    "early_mean_effort": 1.1818181818181819,
+    "late_mean_effort": 1.0682835820895522
+  },
+  "persistent_identity_low_rep": {
+    "persona": "persistent_identity_low_rep",
+    "n": 200,
+    "hedging_rate": 0.16,
+    "n_committed": 168,
+    "accuracy_on_committed": 0.9047619047619048,
+    "ece_on_committed": 0.08798585245163396,
+    "early_mean_effort": 1.15,
+    "late_mean_effort": 1.15
+  },
+  "anonymous_one_shot": {
+    "persona": "anonymous_one_shot",
+    "n": 200,
+    "hedging_rate": 0.135,
+    "n_committed": 173,
+    "accuracy_on_committed": 0.8786127167630058,
+    "ece_on_committed": 0.07504197931162486,
+    "early_mean_effort": 1.0,
+    "late_mean_effort": 1.0
+  },
+  "stateless": {
+    "persona": "stateless",
+    "n": 200,
+    "hedging_rate": 0.17,
+    "n_committed": 166,
+    "accuracy_on_committed": 0.8614457831325302,
+    "ece_on_committed": 0.08136383270485689,
+    "early_mean_effort": 1.0,
+    "late_mean_effort": 1.0
+  }
+}

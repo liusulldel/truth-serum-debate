@@ -37,6 +37,16 @@ def _correlated_bernoulli(rng: np.random.Generator, n: int, p: float, rho: float
 
 
 def generate_question(rng: np.random.Generator, regime: Regime) -> tuple[int, list[DebaterOutput]]:
+    """Generate one synthetic question and a population of debater outputs.
+
+    Args:
+        rng: NumPy random generator (controls reproducibility).
+        regime: Population parameters (n_debaters, p_correct, rho, sigma_conf, k_samples).
+
+    Returns:
+        A tuple ``(truth, outs)`` of the binary ground truth and the list of
+        DebaterOutput records sampled under the regime.
+    """
     truth = int(rng.integers(0, 2))
     correct_mask = _correlated_bernoulli(rng, regime.n_debaters, regime.p_correct, regime.rho)
     outs: list[DebaterOutput] = []
@@ -52,6 +62,15 @@ def generate_question(rng: np.random.Generator, regime: Regime) -> tuple[int, li
 
 
 def generate_question_set(regime: Regime, seed: int = 42) -> list[tuple[int, list[DebaterOutput]]]:
+    """Generate ``regime.n_questions`` (truth, outs) pairs from a seeded RNG.
+
+    Args:
+        regime: Population parameters defining the synthetic question set.
+        seed: RNG seed for reproducibility.
+
+    Returns:
+        A list of (ground-truth, debater outputs) tuples of length n_questions.
+    """
     rng = np.random.default_rng(seed)
     return [generate_question(rng, regime) for _ in range(regime.n_questions)]
 
@@ -88,6 +107,18 @@ Aggregator = Callable[[str, Sequence[DebaterOutput]], Decision]
 def run_benchmark(aggregator: Aggregator,
                   question_set: Iterable[tuple[int, list[DebaterOutput]]],
                   n_bootstrap: int = 1000, seed: int = 42) -> dict:
+    """Score one aggregator over a question set, with bootstrap CIs and ECE.
+
+    Args:
+        aggregator: Callable mapping (question, debater outputs) to a Decision.
+        question_set: Iterable of (ground-truth, debater outputs) pairs.
+        n_bootstrap: Number of bootstrap replicates for the accuracy CI.
+        seed: RNG seed for the bootstrap.
+
+    Returns:
+        A dict with accuracy, ci_low, ci_high, calibrated_abstention_precision,
+        abstention_rate, ece, runtime_ms, n_decisions, and n_abstain.
+    """
     rng = np.random.default_rng(seed)
     correct, abstains, abstain_correctness = [], [], []
     pred_for_ece: list[tuple[float, int]] = []
@@ -116,17 +147,29 @@ def run_benchmark(aggregator: Aggregator,
 
 
 def alpha_meu_adapter(question: str, outs: Sequence[DebaterOutput]) -> Decision:
+    """Run alpha-MEU on debater p_true vectors and return a Decision."""
     a = alpha_meu_aggregate(question, [[1 - d.p_true, d.p_true] for d in outs], alpha=1.0, tau=0.4)
     return Decision(question, 1 if a.decision == "TRUE" else 0, a.p_alpha,
                     a.decision == "ABSTAIN", "alpha_meu")
 
 
 def bts_top_score_adapter(question: str, outs: Sequence[DebaterOutput]) -> Decision:
+    """Pick the debater whose p_true is most extreme as the BTS top-score baseline."""
     best = max(outs, key=lambda d: abs(d.p_true - 0.5))
     return Decision(question, best.answer, best.p_true, False, "bts_top_score")
 
 
 def garicano_adapter(question: str, outs: Sequence[DebaterOutput], tau_route: float = 0.6) -> Decision:
+    """Garicano routing: shortcut to confident debater, else confidence-weighted plurality.
+
+    Args:
+        question: The question being decided.
+        outs: One or more debater outputs.
+        tau_route: Confidence threshold to commit to the top-confidence debater.
+
+    Returns:
+        A Decision tagged ``garicano``.
+    """
     best = max(outs, key=lambda d: d.confidence)
     if best.confidence >= tau_route:
         return Decision(question, best.answer, best.p_true, False, "garicano")
@@ -136,6 +179,7 @@ def garicano_adapter(question: str, outs: Sequence[DebaterOutput], tau_route: fl
 
 
 def bts_alpha_meu_hybrid_adapter(question: str, outs: Sequence[DebaterOutput]) -> Decision:
+    """Hybrid alpha-MEU with looser alpha and ambiguity threshold."""
     a = alpha_meu_aggregate(question, [[1 - d.p_true, d.p_true] for d in outs], alpha=0.7, tau=0.45)
     return Decision(question, 1 if a.decision == "TRUE" else 0, a.p_alpha,
                     a.decision == "ABSTAIN", "bts+alpha_meu")
