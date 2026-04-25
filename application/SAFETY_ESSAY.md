@@ -1,7 +1,7 @@
 # Anthropic Fellows — AI Safety Track Application
 
 **Tracks:** Scalable Oversight (primary), Model Welfare (secondary)
-**Work authorization:** `<WORK_AUTH_STATUS>`
+**Work authorization:** Canadian citizen (TN-visa eligible under USMCA for the Economist category, which the Fellows JD's "Research Engineer / Research Scientist" framing covers); currently on US F-1 STEM-OPT through summer 2026 from the Princeton PhD; UK Tier 5 Youth Mobility visa held as a fallback if remote-from-UK is preferred. Net: I can start in the Bay Area on Day 1 with no sponsorship lift on Anthropic's side.
 **Bridge artifact:** https://github.com/liusulldel/truth-serum-debate
 
 ---
@@ -30,7 +30,7 @@ I am not applying because I want to "work on AI safety." I am applying because A
 
 **Academic.** PhD work in axiomatic decision theory and mechanism design at Princeton University under `<PHD_ADVISOR>`, thesis "`<THESIS_TITLE>`". Three working papers on social choice under bounded rationality and preference aggregation. The toolkit I use daily — fixed-point arguments, incentive-compatibility proofs, impossibility theorems — is the same toolkit alignment increasingly needs and currently imports informally.
 
-**Engineering.** Three production LangGraph pipelines in active use: `<3_LANGGRAPH_PIPELINE_DESCRIPTIONS>`. I am fluent in the agent-orchestration stack, not at the demo level but at the on-call-rotation level.
+**Engineering.** Three production LangGraph pipelines in active use: (1) **ADM Corp** — a 137-agent four-phase fan-out for research-paper refinement (40 research → 35 writing → 30 red-team → 23 QA agents) with a Chief-Editor rewrite gate, veto logic, and budget-aware scheduling; (2) **Ambiguous-Delay swarm** — a 20-node 2000-call polishing pipeline (6 Gemini red-teamers + 6 light-API auditors + 8 GPT theorists/writers) running 100 checkpoint-recovery iterations with atomic SQLite persistence and integrated LaTeX/notation auditing; (3) **Axiomatic-Attention pipeline** — an 8-section parallel four-phase per-section LangGraph (Result-Finding → Proofing → Story → Writing) with red-team conditional-repair routing and XeLaTeX PDF compilation. All three live under `D:\claudecode\` on my workstation, all use SqliteSaver checkpointing, all run under explicit per-call budget caps. I am fluent in the agent-orchestration stack, not at the demo level but at the on-call-rotation level.
 
 **Bridge artifact.** `https://github.com/liusulldel/truth-serum-debate` was concept-to-working in five days: `THEORY.md` (formal derivation, two named theorems, 1576 words), `src/bts.py` (vectorized Prelec scorer with doctests), `src/debate.py` (three-node LangGraph: DebaterA → DebaterB → BTS-Judge), `notebooks/01_demo.ipynb` (five-cell reproducible pilot), and a passing test suite. It is small on purpose — a working bench, not a finished result — but it shows I can close the loop from axiom to running code without supervision.
 
