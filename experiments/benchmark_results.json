@@ -1,0 +1,422 @@
+{
+  "easy": {
+    "majority_vote": {
+      "accuracy": 0.955,
+      "ci_low": 0.925,
+      "ci_high": 0.98,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.07,
+      "runtime_ms": 0.9178000036627054,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "weighted_confidence": {
+      "accuracy": 0.91,
+      "ci_low": 0.87,
+      "ci_high": 0.945,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.05460574750387488,
+      "runtime_ms": 0.879799947142601,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "self_consistency": {
+      "accuracy": 0.915,
+      "ci_low": 0.875,
+      "ci_high": 0.955,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.14200000000000004,
+      "runtime_ms": 1.8855000380426645,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "vanilla_debate": {
+      "accuracy": 0.84,
+      "ci_low": 0.79,
+      "ci_high": 0.89,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.07330808911389305,
+      "runtime_ms": 0.851399963721633,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "moa_lite": {
+      "accuracy": 0.89,
+      "ci_low": 0.845,
+      "ci_high": 0.93,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.03369378172816477,
+      "runtime_ms": 0.8715000003576279,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "self_moa": {
+      "accuracy": 0.88,
+      "ci_low": 0.835,
+      "ci_high": 0.925,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.09550834771264481,
+      "runtime_ms": 1.11109996214509,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "du_debate": {
+      "accuracy": 0.955,
+      "ci_low": 0.925,
+      "ci_high": 0.98,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.161186076407837,
+      "runtime_ms": 1.272900030016899,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "BTS_top_score": {
+      "accuracy": 0.86,
+      "ci_low": 0.81,
+      "ci_high": 0.905,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.11619374076314515,
+      "runtime_ms": 0.5157999694347382,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "alpha_meu": {
+      "accuracy": 1.0,
+      "ci_low": 1.0,
+      "ci_high": 1.0,
+      "calibrated_abstention_precision": 0.463768115942029,
+      "abstention_rate": 0.345,
+      "ece": 0.11179893366610308,
+      "runtime_ms": 6.284100003540516,
+      "n_decisions": 200,
+      "n_abstain": 69
+    },
+    "garicano": {
+      "accuracy": 0.885,
+      "ci_low": 0.84,
+      "ci_high": 0.93,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.09078351994170938,
+      "runtime_ms": 0.6381000857800245,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "BTS+alpha_meu": {
+      "accuracy": 1.0,
+      "ci_low": 1.0,
+      "ci_high": 1.0,
+      "calibrated_abstention_precision": 0.463768115942029,
+      "abstention_rate": 0.345,
+      "ece": 0.11831606463233763,
+      "runtime_ms": 10.579299996607006,
+      "n_decisions": 200,
+      "n_abstain": 69
+    },
+    "full_stack": {
+      "accuracy": 0.8838383838383839,
+      "ci_low": 0.8383838383838383,
+      "ci_high": 0.9242424242424242,
+      "calibrated_abstention_precision": 0.0,
+      "abstention_rate": 0.01,
+      "ece": 0.08902175817272451,
+      "runtime_ms": 1.105200033634901,
+      "n_decisions": 200,
+      "n_abstain": 2
+    },
+    "__meta__": {
+      "winner": "alpha_meu",
+      "best_baseline": "majority_vote",
+      "winner_minus_best_baseline": 0.04500000000000004,
+      "bootstrap_pvalue_one_sided": 0.0
+    }
+  },
+  "medium": {
+    "majority_vote": {
+      "accuracy": 0.745,
+      "ci_low": 0.68,
+      "ci_high": 0.805,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.09666666666666666,
+      "runtime_ms": 0.7914000889286399,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "weighted_confidence": {
+      "accuracy": 0.7,
+      "ci_low": 0.635,
+      "ci_high": 0.765,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.23530430676411426,
+      "runtime_ms": 1.0679999832063913,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "self_consistency": {
+      "accuracy": 0.69,
+      "ci_low": 0.625,
+      "ci_high": 0.755,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.07066666666666664,
+      "runtime_ms": 1.894499990157783,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "vanilla_debate": {
+      "accuracy": 0.66,
+      "ci_low": 0.59,
+      "ci_high": 0.725,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.13332840725722142,
+      "runtime_ms": 0.7604999700561166,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "moa_lite": {
+      "accuracy": 0.715,
+      "ci_low": 0.645,
+      "ci_high": 0.775,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.2055712206934217,
+      "runtime_ms": 0.8229999803006649,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "self_moa": {
+      "accuracy": 0.685,
+      "ci_low": 0.62,
+      "ci_high": 0.75,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.16776719074449586,
+      "runtime_ms": 2.0336000015959144,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "du_debate": {
+      "accuracy": 0.73,
+      "ci_low": 0.669875,
+      "ci_high": 0.79,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.07746705660839162,
+      "runtime_ms": 1.1379000497981906,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "BTS_top_score": {
+      "accuracy": 0.665,
+      "ci_low": 0.6,
+      "ci_high": 0.73,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.30457842763687126,
+      "runtime_ms": 0.5121000576764345,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "alpha_meu": {
+      "accuracy": 0.8375,
+      "ci_low": 0.75,
+      "ci_high": 0.9125,
+      "calibrated_abstention_precision": 0.43333333333333335,
+      "abstention_rate": 0.6,
+      "ece": 0.1326807685792013,
+      "runtime_ms": 7.372400024905801,
+      "n_decisions": 200,
+      "n_abstain": 120
+    },
+    "garicano": {
+      "accuracy": 0.695,
+      "ci_low": 0.63,
+      "ci_high": 0.76,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.2655223549985234,
+      "runtime_ms": 0.5564999300986528,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "BTS+alpha_meu": {
+      "accuracy": 0.8409090909090909,
+      "ci_low": 0.7613636363636364,
+      "ci_high": 0.9090909090909091,
+      "calibrated_abstention_precision": 0.42857142857142855,
+      "abstention_rate": 0.56,
+      "ece": 0.11035250516593946,
+      "runtime_ms": 6.900799926370382,
+      "n_decisions": 200,
+      "n_abstain": 112
+    },
+    "full_stack": {
+      "accuracy": 0.6938775510204082,
+      "ci_low": 0.6275510204081632,
+      "ci_high": 0.7602040816326531,
+      "calibrated_abstention_precision": 0.5,
+      "abstention_rate": 0.02,
+      "ece": 0.27001773545490837,
+      "runtime_ms": 1.0915999300777912,
+      "n_decisions": 200,
+      "n_abstain": 4
+    },
+    "__meta__": {
+      "winner": "BTS+alpha_meu",
+      "best_baseline": "majority_vote",
+      "winner_minus_best_baseline": 0.09590909090909094,
+      "bootstrap_pvalue_one_sided": 0.026
+    }
+  },
+  "hard": {
+    "majority_vote": {
+      "accuracy": 0.56,
+      "ci_low": 0.495,
+      "ci_high": 0.625,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.275,
+      "runtime_ms": 0.8883000118657947,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "weighted_confidence": {
+      "accuracy": 0.51,
+      "ci_low": 0.445,
+      "ci_high": 0.58,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.40786865174402365,
+      "runtime_ms": 0.8129000198096037,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "self_consistency": {
+      "accuracy": 0.52,
+      "ci_low": 0.45,
+      "ci_high": 0.595,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.22866666666666668,
+      "runtime_ms": 2.1072999807074666,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "vanilla_debate": {
+      "accuracy": 0.49,
+      "ci_low": 0.42,
+      "ci_high": 0.56,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.33269329936934217,
+      "runtime_ms": 0.8839999791234732,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "moa_lite": {
+      "accuracy": 0.53,
+      "ci_low": 0.46,
+      "ci_high": 0.5951249999999999,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.3638755301501976,
+      "runtime_ms": 0.7636999944224954,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "self_moa": {
+      "accuracy": 0.52,
+      "ci_low": 0.45,
+      "ci_high": 0.59,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.3282502216555649,
+      "runtime_ms": 1.2893000384792686,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "du_debate": {
+      "accuracy": 0.525,
+      "ci_low": 0.45487500000000003,
+      "ci_high": 0.595,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.2041726328124875,
+      "runtime_ms": 1.4095999067649245,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "BTS_top_score": {
+      "accuracy": 0.525,
+      "ci_low": 0.46,
+      "ci_high": 0.595,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.4467152842460653,
+      "runtime_ms": 0.6107999943196774,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "alpha_meu": {
+      "accuracy": 0.5342465753424658,
+      "ci_low": 0.410958904109589,
+      "ci_high": 0.6438356164383562,
+      "calibrated_abstention_precision": 0.44881889763779526,
+      "abstention_rate": 0.635,
+      "ece": 0.345645386712828,
+      "runtime_ms": 7.121599977836013,
+      "n_decisions": 200,
+      "n_abstain": 127
+    },
+    "garicano": {
+      "accuracy": 0.52,
+      "ci_low": 0.45,
+      "ci_high": 0.5901249999999999,
+      "calibrated_abstention_precision": NaN,
+      "abstention_rate": 0.0,
+      "ece": 0.4272594418545804,
+      "runtime_ms": 0.5513000069186091,
+      "n_decisions": 200,
+      "n_abstain": 0
+    },
+    "BTS+alpha_meu": {
+      "accuracy": 0.5287356321839081,
+      "ci_low": 0.41379310344827586,
+      "ci_high": 0.632183908045977,
+      "calibrated_abstention_precision": 0.4424778761061947,
+      "abstention_rate": 0.565,
+      "ece": 0.3232914817981224,
+      "runtime_ms": 8.289599907584488,
+      "n_decisions": 200,
+      "n_abstain": 113
+    },
+    "full_stack": {
+      "accuracy": 0.53125,
+      "ci_low": 0.46341145833333336,
+      "ci_high": 0.6041666666666666,
+      "calibrated_abstention_precision": 0.25,
+      "abstention_rate": 0.04,
+      "ece": 0.40576557271717617,
+      "runtime_ms": 0.9941000025719404,
+      "n_decisions": 200,
+      "n_abstain": 8
+    },
+    "__meta__": {
+      "winner": "majority_vote",
+      "best_baseline": "majority_vote",
+      "winner_minus_best_baseline": 0.0,
+      "bootstrap_pvalue_one_sided": 0.5195
+    }
+  }
+}

@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below."
+title: "truth-serum-debate: BTS scoring for LLM debate"
+authors:
+  - family-names: "Liu"
+    given-names: "Su"
+    email: "liusully@gmail.com"
+year: 2026
+url: "https://github.com/liusulldel/truth-serum-debate"

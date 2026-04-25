@@ -1,0 +1,15 @@
+Question: The Riemann hypothesis has been proven.
+Ground truth: false
+
+--- BTS baseline ---
+  Scores: A=+0.7890, B=-0.4430, C=-0.3460
+  Winner: A; selected verdict = false
+  Correct? True
+
+--- Holmstrom team contract (forcing) ---
+  Aggregated verdict: true
+  Confidence: 0.100
+  Correct? False
+  Payoff[A]: gross=0.00, net=0.00
+  Payoff[B]: gross=0.00, net=0.00
+  Payoff[C]: gross=0.00, net=0.00

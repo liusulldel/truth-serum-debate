@@ -1,0 +1,20 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.9, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\liusu\Python312\python.exe
+cachedir: .pytest_cache
+rootdir: D:\anthropic-application\truth-serum-debate
+configfile: pyproject.toml
+plugins: anyio-4.12.1, langsmith-0.7.17
+collecting ... collected 10 items
+
+experiments/contract_holmstrom_teams/test_team_contract.py::test_forcing_contract_pays_correct_team PASSED [ 10%]
+experiments/contract_holmstrom_teams/test_team_contract.py::test_forcing_contract_no_pay_when_wrong PASSED [ 20%]
+experiments/contract_holmstrom_teams/test_team_contract.py::test_forcing_contract_no_pay_when_truly_wrong PASSED [ 30%]
+experiments/contract_holmstrom_teams/test_team_contract.py::test_budget_balanced_splits_pot PASSED [ 40%]
+experiments/contract_holmstrom_teams/test_team_contract.py::test_dissenter_unpaid PASSED [ 50%]
+experiments/contract_holmstrom_teams/test_team_contract.py::test_holmstrom_theorem_budget_breaker_restores_effort[2] PASSED [ 60%]
+experiments/contract_holmstrom_teams/test_team_contract.py::test_holmstrom_theorem_budget_breaker_restores_effort[3] PASSED [ 70%]
+experiments/contract_holmstrom_teams/test_team_contract.py::test_holmstrom_theorem_budget_breaker_restores_effort[5] PASSED [ 80%]
+experiments/contract_holmstrom_teams/test_team_contract.py::test_holmstrom_theorem_budget_breaker_restores_effort[10] PASSED [ 90%]
+experiments/contract_holmstrom_teams/test_team_contract.py::test_net_payoff_subtracts_cost PASSED [100%]
+
+============================= 10 passed in 0.04s ==============================

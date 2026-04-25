@@ -1,0 +1,10 @@
+[project]
+name = "truth-serum-debate"
+version = "0.1.0"
+description = "Bayesian Truth Serum scoring for LLM debate as scalable oversight"
+requires-python = ">=3.11"
+authors = [{name = "Liu Su", email = "liusully@gmail.com"}]
+license = {text = "MIT"}
+
+[tool.ruff]
+line-length = 100

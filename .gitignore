@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+.venv/
+.venv-*/
+venv/
+env/
+.env
+.env.*
+!.env.example
+.ipynb_checkpoints/
+.vscode/
+.idea/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+results/raw.csv
+.DS_Store
+*.log
+# Internal planning artifacts - do not publish (contain pre-publication
+# audit trail with leaked-key strings and absolute D:\claudecode paths)
+SCRUB_PLAN.md
+INVENTORY.md
+FINAL_SCRUB_REPORT.md
