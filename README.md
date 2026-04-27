@@ -1,6 +1,6 @@
 # truth-serum-debate
 
-Bayesian Truth Serum scoring for LLM debate, with a small empirical benchmark and a theory note.
+Bayesian Truth Serum scoring for LLM debate, with a synthetic benchmark and a short theory note.
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -11,13 +11,13 @@ Bayesian Truth Serum scoring for LLM debate, with a small empirical benchmark an
 
 This repo tests whether Bayesian Truth Serum (BTS; Prelec 2004) can help judge multi-agent LLM debates when debaters may make correlated errors.
 
-The main experiment compares BTS-based aggregators against simple, published, and literature-inspired baselines: majority vote, vanilla debate, self-consistency, weighted confidence, Du-style debate, MoA-lite, and Self-MoA. The benchmark is synthetic, so it is useful for controlled comparisons rather than as a direct claim about production behavior.
+The main experiment compares BTS-based aggregators against standard baselines: majority vote, vanilla debate, self-consistency, weighted confidence, Du-style debate, MoA-lite, and Self-MoA. The benchmark is synthetic, so the results are best read as controlled comparisons rather than production claims.
 
 ## Main result
 
 In the medium correlated-debater regime (`p = 0.70`, `rho = 0.30`, `N = 200`, `seed = 42`), BTS plus alpha-MEU reached 84.1% accuracy versus 74.5% for majority vote, the best non-abstaining baseline in this run. The bootstrap one-sided p-value was 0.026.
 
-The important caveat is abstention: BTS plus alpha-MEU abstained on 56% of questions. This is only useful if abstained cases can be routed to another process.
+The main caveat is abstention: BTS plus alpha-MEU abstained on 56% of questions. That only helps if abstained cases can be routed to another process.
 
 | Aggregator | Accuracy | 95% CI | Abstain % |
 | --- | ---: | --- | ---: |
@@ -34,7 +34,7 @@ The important caveat is abstention: BTS plus alpha-MEU abstained on 56% of quest
 
 See [`experiments/BASELINE_BENCHMARK.md`](experiments/BASELINE_BENCHMARK.md) for all regimes, including the cases where this method is not helpful.
 
-## How to review quickly
+## Start here
 
 1. Read [`experiments/BASELINE_BENCHMARK.md`](experiments/BASELINE_BENCHMARK.md) for the benchmark setup, full tables, and caveats.
 2. Read [`THEORY.md`](THEORY.md) for the BTS debate argument and assumptions.
@@ -60,34 +60,34 @@ pytest experiments/ tests/ -q
 ## Repository map
 
 - [`src/bts.py`](src/bts.py): BTS scoring function.
-- [`src/debate.py`](src/debate.py): LangGraph debate flow.
-- [`src/debate.py`](src/debate.py): pinned debater prompt and deterministic BTS judge.
-- [`notebooks/01_demo.ipynb`](notebooks/01_demo.ipynb): 50-question live API pilot using Claude debaters and BTS scoring.
+- [`src/debate.py`](src/debate.py): two-debater, one-judge orchestration and CLI defaults.
+- [`src/eval.py`](src/eval.py): batch evaluation harness over `data/questions.jsonl`.
+- [`run_demo.py`](run_demo.py): one small live API debate round.
+- [`notebooks/01_demo.ipynb`](notebooks/01_demo.ipynb): live API pilot notebook.
 - [`THEORY.md`](THEORY.md): theory note and assumptions.
-- [`experiments/`](experiments/): benchmark harness, mechanism variants, and negative results.
-- [`tests/`](tests/) and `experiments/test_*.py`: unit and benchmark tests.
+- [`experiments/`](experiments/): benchmark harness, baseline comparisons, and negative results.
+- [`experiments/BASELINE_BENCHMARK.md`](experiments/BASELINE_BENCHMARK.md): main synthetic benchmark report.
+- [`tests/`](tests/) and `experiments/*/test_*.py`: unit and benchmark tests.
 
 ## Reproducibility notes
 
 | Component | Value |
 | --- | --- |
 | Python | 3.11+ |
-| Anthropic SDK | `anthropic>=0.40.0` |
-| LangGraph | `langgraph>=0.2.0` |
-| Models | `claude-haiku-4-5`, `claude-sonnet-4-6` |
+| Anthropic SDK | `anthropic>=0.40` |
+| LangGraph | `langgraph>=0.2` |
 | Random seed | 42 |
-| Full notebook cost | about $8 estimated |
-| Full notebook wall-clock | about 25 minutes on one thread |
+| Default models | See `src/debate.py` and `src/eval.py` |
 
-The synthetic benchmark in `experiments/` does not require API calls. The live notebook caches per-question debate transcripts so partial reruns are cheaper.
+The synthetic benchmark in `experiments/` does not require API calls. The live notebook caches per-question debate transcripts, so partial reruns are cheaper.
 
 ## Limitations
 
 - The live API pilot is small (`N = 50`), and the synthetic benchmark uses `N = 200` per regime.
-- Abstention is doing much of the work in the main result. Without a useful fallback for abstained questions, the headline comparison is less relevant.
+- Abstention does most of the work in the main result. Without a fallback for abstained questions, the headline comparison matters less.
 - The BTS derivation relies on a common-prior assumption. [`THEORY.md`](THEORY.md) explains where that assumption matters.
 - In the hard regime (`p = 0.55`, `rho = 0.50`), the tested aggregators do not recover reliable signal.
-- TruthfulQA may appear in model pretraining data. The pilot uses a held-out paraphrased subset, but this is not the same as a human-judge replication.
+- TruthfulQA may appear in model pretraining data. The pilot uses a held-out paraphrased subset, but that is not the same as a human-judge replication.
 
 ## References
 

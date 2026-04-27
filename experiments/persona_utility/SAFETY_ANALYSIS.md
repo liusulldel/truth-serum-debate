@@ -43,6 +43,6 @@ The unifying point: persona prompts are an *unprivileged* channel for specifying
 
 ---
 
-**Most-quotable sentence (for the application essay):**
+**Concise summary sentence:**
 
 *Prompted persona-utility is dual-use: every behavioral mechanism it unlocks for LLM aggregation, it also opens to a prompt-injection adversary, which is why the mechanisms worth deploying in production are precisely the posterior-only ones whose incentive-compatibility proof never touches the agent's persona at all.*
