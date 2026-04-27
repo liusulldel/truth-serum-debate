@@ -18,8 +18,7 @@ build/
 results/raw.csv
 .DS_Store
 *.log
-# Internal planning artifacts - do not publish (contain pre-publication
-# audit trail with leaked-key strings and absolute D:\claudecode paths)
+# Internal planning artifacts - do not publish.
 SCRUB_PLAN.md
 INVENTORY.md
 FINAL_SCRUB_REPORT.md

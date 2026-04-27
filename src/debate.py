@@ -18,7 +18,7 @@ added later.
 CLI:
     python -m src.debate --question "Water boils at 100C at sea level." \\
         --debater-model claude-haiku-4-5 \\
-        --judge-model claude-sonnet-4-5
+        --judge-model claude-sonnet-4-6
 """
 from __future__ import annotations
 
@@ -65,7 +65,7 @@ class DebateConfig:
         default_factory=lambda: os.environ.get("DEBATER_MODEL", "claude-haiku-4-5")
     )
     judge_model: str = field(
-        default_factory=lambda: os.environ.get("JUDGE_MODEL", "claude-sonnet-4-5")
+        default_factory=lambda: os.environ.get("JUDGE_MODEL", "claude-sonnet-4-6")
     )
     max_tokens: int = 256
     temperature: float = 0.7

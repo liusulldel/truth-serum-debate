@@ -49,7 +49,7 @@ All citations verified (arXiv IDs, DOIs, journal references).
 
 **Winner**: alpha_meu (and BTS+alpha_meu hybrid, identically) at 100% accuracy on the 65.5% it commits to, vs. best baselines majority_vote and du_debate (tied at 95.5%). **Bootstrap p < 0.001** (one-sided). Du-debate matches majority_vote exactly here -- with high-quality debaters (p=0.85), the mean-drift dynamic preserves the majority signal.
 
-### Medium regime (p=0.70, rho=0.30) -- the realistic deployment regime
+### Medium regime (p=0.70, rho=0.30) -- the correlated-error test regime
 
 | aggregator | accuracy | 95% CI | abstain% | CAP | ECE | ms |
 |---|---|---|---|---|---|---|
@@ -66,7 +66,7 @@ All citations verified (arXiv IDs, DOIs, journal references).
 | **BTS+alpha_meu** | **0.841** | **[0.761, 0.909]** | 56.0% | 0.429 | 0.110 | 6.9 |
 | full_stack | 0.694 | [0.628, 0.760] | 2.0% | 0.500 | 0.270 | 1.1 |
 
-**Winner**: BTS+alpha_meu hybrid at 84.1% vs. best baseline majority_vote at 74.5% (**+9.6 percentage points, bootstrap p = 0.026**). 56% of questions get abstained on; on the remaining 44%, the hybrid is decisively more accurate. Among the new strong baselines: du_debate (0.730) is the best published-debate-protocol baseline, beating moa_lite (0.715) and self_moa (0.685) -- but the hybrid still beats du_debate by +11.1 pp. Notably self_moa LOSES to moa_lite here, contra Li et al.'s headline -- consistent with their finding that single-model self-ensembling helps on quality-sensitive tasks but not on noisy-correlated-debater regimes where moa_lite's variance reweighting still pays.
+**Committed-decision result**: BTS+alpha_meu reached 84.1% accuracy on the subset where it did not abstain, versus 74.5% for majority_vote, the best non-abstaining baseline in this synthetic run (**+9.6 percentage points, bootstrap p = 0.026**). The caveat is large: 56% of questions are abstained on. Du-debate (0.730), MoA-lite (0.715), and Self-MoA (0.685) remain serious baselines; the comparison is useful for this controlled correlated-error regime, not a claim of general deployment superiority.
 
 ### Hard / adversarial regime (p=0.55, rho=0.50)
 
@@ -99,15 +99,15 @@ All citations verified (arXiv IDs, DOIs, journal references).
 
 5. **Self-MoA (Li et al. 2025) underperforms MoA-lite** on both medium (0.685 vs 0.715) and ties on easy/hard. Our anchor-shrinkage mock collapses cross-debater diversity toward the highest-confidence proposer's p_true; when that anchor is wrong (which happens at p=0.70), the shrinkage propagates the error. Li et al.'s headline finding -- that single-model self-ensembling beats MoA on quality-sensitive tasks -- requires a real anchor model that is unambiguously stronger than the alternates; in our equal-strength synthetic regime the assumption fails. The Self-MoA baseline is included for completeness, not as a strawman.
 
-6. **Du-debate is the strongest *non-abstaining* baseline on medium** (0.730), edging out majority_vote (0.745 -- correction: still narrowly best) and beating moa_lite (0.715). The mean-drift dynamic acts as a soft Bayesian average and dampens the most miscalibrated debaters, which is exactly the regime where weighted_confidence overshoots. BTS+alpha-MEU still beats du_debate by +11.1 pp on its committed subset, but the gap narrows from "vs strawman" to "vs serious published baseline."
+6. **Majority vote remains the strongest non-abstaining baseline on medium** (0.745), with Du-debate close behind (0.730) and MoA-lite at 0.715. BTS+alpha-MEU is higher only on its committed subset, so the right comparison is coverage-aware rather than a blanket win claim.
 
 ## 5. Implication for scalable oversight
 
-Abstention-aware aggregation matters precisely when (a) debaters are individually noisy and (b) their errors are correlated -- i.e. when consensus carries less information than naive Condorcet predicts. This is the realistic deployment regime for current frontier-LLM debate: the debaters share a base model and prompt distribution, so they fail in correlated ways. The mechanism-stack result is sharpest in the **medium** regime (the +9.6 pp win) because that is where (a) and (b) co-occur but the signal has not yet collapsed below chance. In the **hard** regime no aggregator can rescue the underlying poor information; in the **easy** regime there is so much signal that even plurality nearly saturates. The headline message for safety-via-debate: **the unique value of ambiguity-aware abstention is in the realistic middle regime, exactly where naive aggregators silently degrade**.
+Abstention-aware aggregation is most relevant when debaters are individually noisy and their errors are correlated, so consensus carries less information than naive Condorcet reasoning predicts. The medium regime is where BTS+alpha_meu shows its intended behavior: higher committed accuracy at lower coverage. In the **hard** regime no aggregator rescues the underlying poor information; in the **easy** regime plurality nearly saturates. The safety-relevant question is whether a real system has a good escalation path for abstained cases.
 
 ### Headline sentence (quotable)
 
-> On the realistic medium regime (debater accuracy 0.70, pairwise correlation 0.30), the BTS + alpha-MEU hybrid achieves 84.1% accuracy on its non-abstained decisions versus 74.5% for the best of seven published baselines including Self-MoA (Li 2025, arXiv:2502.00674), Du-debate (Du 2023, arXiv:2305.14325), MoA-lite (Wang 2024), self-consistency (Wang 2022), and Khan-style debate (2024) -- a +9.6-percentage-point improvement at bootstrap p = 0.026, demonstrating that ambiguity-aware abstention dominates orchestration heuristics exactly when correlated debater errors make consensus least informative.
+> In a synthetic medium correlated-error regime (debater accuracy 0.70, pairwise correlation 0.30), BTS + alpha-MEU reaches 84.1% accuracy on non-abstained decisions versus 74.5% for the best non-abstaining baseline in this run, while abstaining on 56% of questions.
 
 ### Future work (single concrete extension)
 
